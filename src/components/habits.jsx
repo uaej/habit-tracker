@@ -1,35 +1,23 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import Habit from './habit';
 
 class Habits extends Component {
-  state = {
-    count: 0,
-  };
-  handleIncrease = (event) =>{
-      console.log(event);
-      this.setState({count: this.state.count + 1})
-  }
-
-  handleDecrease = (event) =>{
-    console.log(event);
-    this.setState({count : this.state.count <= 0 ? 0 : this.state.count - 1});
-}
-  render() {
-    return (
-      <li className="habit">
-        <span className="habit-name">aa</span>
-        <span className="habit-count">{this.state.count}</span>
-        <button className="habit-button habit-increase" onClick={this.handleIncrease}>
-          <i className="fas fa-plus-square"></i>
-        </button>
-        <button className="habit-button habit-decrease" onClick={this.handleDecrease}>
-          <i className="fas fa-minus-square"></i>
-        </button>
-        <button className="habit-button habit-delete">
-          <i className="fas fa-trash"></i>
-        </button>
-      </li>
-    );
-  }
+    state={
+        habits: [
+            {name : 'Reading', count: 0, key},
+            {name : 'Running', count: 0},
+            {name : 'Coding', count: 0},
+        ],
+    }
+    render() {
+        return (
+          <ul>
+            {this.state.habits.map((i) => (
+              <Habit habit={i}/>
+            ))}
+          </ul>
+        );
+    }
 }
 
 export default Habits;

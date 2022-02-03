@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './app';
-import habits from './components/habits';
+import habits from './components/habit';
 import '@fortawesome/fontawesome-free/js/all.js';
 
 ReactDOM.render(
