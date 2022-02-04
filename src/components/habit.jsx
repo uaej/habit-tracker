@@ -5,15 +5,23 @@ class Habit extends Component {
     count: 0,
   };
 
-  handleIncrease = (event) =>{
-      this.setState({count: this.state.count + 1})
-    }
+  handleIncrease= (event)=>{
+    const fun = this.props.onIncreament;
+    fun(this.props.habit);
+  }
 
-  handleDecrease = (event) =>{
-    this.setState({count : this.state.count <= 0 ? 0 : this.state.count - 1});
-}
+  handleDecrease= (event)=>{
+    const fun = this.props.onDecreament;
+    fun(this.props.habit);
+  }
+
+  handleDetele= (event)=>{
+    const fun = this.props.onDeleten;
+    fun(this.props.habit);
+  }
+  
   render() {
-    const {name, count} = this.props.habit;
+    const {name, count, key} = this.props.habit;
     return (
       <li className="habit">
         <span className="habit-name">{name}</span>
@@ -24,7 +32,8 @@ class Habit extends Component {
         <button className="habit-button habit-decrease" onClick={this.handleDecrease}>
           <i className="fas fa-minus-square"></i>
         </button>
-        <button className="habit-button habit-delete">
+
+        <button className="habit-button habit-delete" onClick={this.handleDetele}>
           <i className="fas fa-trash"></i>
         </button>
       </li>
