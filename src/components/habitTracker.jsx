@@ -1,13 +1,11 @@
 import React, { Component } from "react";
+import HabitAddForm from "./HabitAddForm";
 import Habits from "./habits";
+import Navbar from "./navbar";
 
 class HabitTracker extends Component {
   state = {
-    habits: [
-      { id: 1, name: "Reading", count: 0 },
-      { id: 2, name: "Running", count: 0 },
-      { id: 3, name: "Coding", count: 0 },
-    ],
+    habits: [],
   };
 
   handleIncrease = (habit) => {
@@ -33,31 +31,29 @@ class HabitTracker extends Component {
 
   resetList = (event) => {
     event.preventDefault();
-    this.setState({ habits: [] });
+    const h = [...this.state.habits];
+    h.map((d) => (
+      d.count = 0
+      ))
+    this.setState({ habits: h });
   };
 
-  addList = (event) => {
-    event.preventDefault();
-    console.log(event.target[0].value);
-    const habitTitle = event.target[0].value;
-    const habits = [...this.state.habits];
-    habits.push({ id: habits.length, name: habitTitle, count: 0 });
-    console.log(habits);
-    this.setState({habits: habits});
-  };
+  addList=(name)=>{
+    console.log("addList " + name);
+    const habits = [...this.state.habits]; //새로운  배열으로 habits의 item을 복사한다.
+    habits.push({id: Date.now(), name: name, count: 0})
+    this.setState({habits});
+  }
 
   render() {
     return (
       <>
-        <header className="habit-header">
-            <p className="habit-title">Habit Tracker</p>
-            <p className="habit-sum">{this.state.habits.length}</p>
-        </header>
-        <form onSubmit={this.addList}>
-          <input className="habit-input" name="habit" type="string"></input>
-          <button className="habit-manage-btn">add</button>
-        </form>
-        <Habits
+        <Navbar
+          activeCnt={this.state.habits.filter((item) => item.count > 0).length}
+        />
+        <HabitAddForm onAdd={this.addList}/>
+        
+        <Habits 
           habits={this.state.habits}
           handleIncrease={this.handleIncrease}
           handleDecrease={this.handleDecrease}

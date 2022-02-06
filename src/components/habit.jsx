@@ -1,39 +1,31 @@
 import React, { Component } from "react";
 
 class Habit extends Component {
-  state = {
-    count: 0,
+  a = (a) => console.log(this.props.key);
+
+  inc = () => {
+    this.props.onIncreament(this.props.habit);
+  };
+  dec = () => {
+    this.props.onDecreament(this.props.habit);
+  };
+  del = () => {
+    this.props.onDeleten(this.props.habit);
   };
 
-  handleIncrease= (event)=>{
-    const fun = this.props.onIncreament;
-    fun(this.props.habit);
-  }
-
-  handleDecrease= (event)=>{
-    const fun = this.props.onDecreament;
-    fun(this.props.habit);
-  }
-
-  handleDetele= (event)=>{
-    const fun = this.props.onDeleten;
-    fun(this.props.habit);
-  }
-  
   render() {
-    const {name, count, key} = this.props.habit;
     return (
-      <li className="habit">
-        <span className="habit-name">{name}</span>
-        <span className="habit-count">{count}</span>
-        <button className="habit-button habit-increase" onClick={this.handleIncrease}>
+      <li className="habit" >
+        <span className="habit-name">{this.props.habit.name}</span>
+        <span className="habit-count">{this.props.habit.count}</span>
+        <button className="habit-button habit-increase" onClick={this.inc}>
           <i className="fas fa-plus-square"></i>
         </button>
-        <button className="habit-button habit-decrease" onClick={this.handleDecrease}>
+        <button className="habit-button habit-decrease" onClick={this.dec}>
           <i className="fas fa-minus-square"></i>
         </button>
 
-        <button className="habit-button habit-delete" onClick={this.handleDetele}>
+        <button className="habit-button habit-delete" onClick={this.del}>
           <i className="fas fa-trash"></i>
         </button>
       </li>
