@@ -2,7 +2,7 @@ import React, { Component, PureComponent } from "react";
 import Habit from "./habit";
 import HabitAddForm from "./HabitAddForm";
 
-class Habits extends PureComponent {
+class Habits extends Component {
   handleIncrement = habit => {
     this.props.handleIncrease(habit);
   };
