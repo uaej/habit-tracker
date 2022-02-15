@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
-class Habit extends Component {
-  a = (a) => console.log(this.props.key);
+class Habit extends PureComponent {
 
   inc = () => {
     this.props.onIncreament(this.props.habit);

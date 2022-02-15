@@ -7,8 +7,7 @@ class Navbar extends Component {
         <nav className="habit-header">
           <i className="navbar-logo fas fa-leaf"></i>
           <p className="habit-title">Habit Tracker</p>
-          <p className="habit-sum">{this.props.activeCnt}
-          </p>
+          <p className="habit-sum">{this.props.activeCnt}</p>
         </nav>
       </div>
     );
