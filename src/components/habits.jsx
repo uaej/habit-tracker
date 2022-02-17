@@ -12,7 +12,7 @@ function Habits({handleIncrease, handleDecrease, handleDelete, handleReset, habi
               habit={i}
               onIncreament={handleIncrease}
               onDecreament={handleDecrease}
-              onDeleten={handleDelete}
+              onDelete={handleDelete}
             />
           ))}
         </ul>
