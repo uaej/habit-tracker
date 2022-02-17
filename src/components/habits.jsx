@@ -2,39 +2,26 @@ import React, { Component, PureComponent } from "react";
 import Habit from "./habit";
 import HabitAddForm from "./HabitAddForm";
 
-class Habits extends Component {
-  handleIncrement = habit => {
-    this.props.handleIncrease(habit);
-  };
-
-  handleDecrement = habit => {
-    this.props.handleDecrease(habit);
-  };
-
-  handleDelete = habit => {
-    this.props.handleDelete(habit);
-  };
-  render() {
+function Habits({handleIncrease, handleDecrease, handleDelete, handleReset, habits}) {
     return (
       <>
         <ul>
-          {this.props.habits.map(i => (
+          {habits.map(i => (
             <Habit
               key={i.id}
               habit={i}
-              onIncreament={this.handleIncrement}
-              onDecreament={this.handleDecrement}
-              onDeleten={this.handleDelete}
+              onIncreament={handleIncrease}
+              onDecreament={handleDecrease}
+              onDeleten={handleDelete}
             />
           ))}
         </ul>
 
-        <button className="habit-manage-btn" onClick={this.props.handleReset}>
+        <button className="habit-manage-btn" onClick={handleReset}>
           Reset All
         </button>
       </>
     );
-  }
 }
 
 export default Habits;
