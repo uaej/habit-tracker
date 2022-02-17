@@ -19,20 +19,19 @@ input{
   padding: 1em;
 }
 
-.navbar-logo {
-  color: green;
+.navbar-logo {  
+  color: rgb(114, 74, 179);
   margin-right: 0.5em;
 }
 
 .navbar-count {
   display: inline-block;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   width: 2.5rem;
   height: 2.5rem;
   line-height: 2.5rem;
   margin-left: 0.2em;
-  background-color: green;
   color: white;
   border-radius: 50%;
 }
@@ -42,25 +41,16 @@ input{
   padding-top: 2em;
 }
 
-.add-input {
-  font-size: 2rem;
-}
-
-.add-input {
+.habit-input {
   margin-right: 0.2em;
-}
-
-.add-button {
-  height: 100%;
-  font-size: 1.5rem;
-  padding: 0.3em 0.5em;
-  background-color: green;
-  color: white;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border: none;
 }
 
 .habit {
-  font-size: 2.5rem;
-  padding: 0.5em;
+  font-size: 1.7rem;
+  padding: 0.7em 1.5rem;
   list-style: none;
 }
 
@@ -73,35 +63,34 @@ input{
   line-height: 2.5rem;
   margin-left: 0.2em;
   margin-right: 0.5em;
-  background-color: darkseagreen;
+  background-color: rgb(194, 179, 219);
   color: white;
   border-radius: 50%;
 }
 
 .habit-button {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin: 0 0.1em;
   background-color: transparent;
 }
 
 .habit-button:hover {
-  opacity: 0.8;
+  opacity: 0.5;
 }
 
 .habit-increase,
-.habit-decrease {
-  color: goldenrod;
+.habit-decrease{
+  color: rgb(2, 46, 82);
 }
 
 .habit-delete {
   font-size: 2rem;
-  color: darkred;
+  color: rgb(71, 71, 71);
 }
 
 .habits-reset {
   font-size: 1.5rem;
   padding: 0.2em 1em;
-  background-color: green;
   color: white;
 }
 
@@ -126,10 +115,9 @@ input{
 
 .habit-manage-btn{
   background-color: rgb(114, 74, 179);
-  background-blend-mode: color-burn;
   border-radius: 0.7em;
   color: white;
-  font-size: 1.5rem; 
+  font-size: 1.2rem; 
   padding: 0.2em 1em;
   margin: 0.2em;
 }
