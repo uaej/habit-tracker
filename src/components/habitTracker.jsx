@@ -1,4 +1,10 @@
-import React, { Component, memo, PureComponent, useMemo, useState } from "react";
+import React, {
+  Component,
+  memo,
+  PureComponent,
+  useMemo,
+  useState,
+} from "react";
 import HabitAddForm from "./HabitAddForm";
 import Habits from "./habits";
 import Navbar from "./navbar";
@@ -8,7 +14,7 @@ function HabitTracker() {
   const handleIncrease = (habit) => {
     const h = habits.map((item) => {
       if (item.id === habit.id) {
-        return { ...habit, count: item.count + 1 };
+        return { ...item, count: item.count + 1 };
       } else {
         return item;
       }
@@ -57,14 +63,18 @@ function HabitTracker() {
     <>
       <Navbar activeCnt={habits.filter((item) => item.count > 0).length} />
       <HabitAddForm onAdd={addList} />
-      <Habits
+      {
+        useMemo(()=>
+        <Habits
         habits={habits}
         handleIncrease={handleIncrease}
         handleDecrease={handleDecrease}
         handleDelete={handleDelete}
         handleReset={resetList}
-      />
-    </>
+      />  
+  )
+      }
+          </>
   );
 }
 
