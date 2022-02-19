@@ -2,6 +2,8 @@ import React, {
   Component,
   memo,
   PureComponent,
+  useDebugValue,
+  useEffect,
   useMemo,
   useState,
 } from "react";
@@ -11,6 +13,16 @@ import Navbar from "./navbar";
 
 function HabitTracker() {
   const [habits, setState] = useState([]);
+  useEffect(()=>{
+    //초기 진입 시 local db의 값을 표시함. 
+    const item = window.localStorage.getItem('habits');
+    setState(JSON.parse(item));
+  }, []);
+  useEffect(() => {
+    //habits state가 변경될 경우 locladb에 업데이트 함.
+    window.localStorage.setItem('habits', JSON.stringify(habits));
+  }, [habits]);
+
   const handleIncrease = (habit) => {
     const h = habits.map((item) => {
       if (item.id === habit.id) {
