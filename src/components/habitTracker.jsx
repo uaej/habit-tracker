@@ -69,7 +69,7 @@ function HabitTracker() {
 
   return (
     <>
-      <Navbar activeCnt={habits.filter((item) => item.count > 0).length} />
+      <Navbar activeCnt={(habits == null?  0 : habits.filter((item) => item.count > 0).length)} />
       <HabitAddForm onAdd={addList} />
       {
         useMemo(()=>
