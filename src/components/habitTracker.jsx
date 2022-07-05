@@ -6,7 +6,6 @@ import React, {
 import HabitAddForm from "./HabitAddForm";
 import Habits from "./habits";
 import Navbar from "./navbar";
-import Timer from "./timer";
 
 function HabitTracker() {
   const [habits, setState] = useState([]);
@@ -71,7 +70,6 @@ function HabitTracker() {
   return (
     <>
       <Navbar activeCnt={habits.filter((item) => item.count > 0).length} />
-      <Timer/>
       <HabitAddForm onAdd={addList} />
       {
         useMemo(()=>
